@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,7 +11,8 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://super-potato-5gxr57xj6wpj3vq9p-3001.app.github.dev/api/signup", {
+      const response = await fetch(`${backendUrl}/api/signup`, {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 
@@ -47,6 +48,13 @@ export const Home = () => {
 					</span>
 				)}
 			</div>
+
+			<div className="mt-4">
+				<p>¿Quieres comenzar?</p>
+				<Link to="/login" className="btn btn-primary mx-2">Iniciar Sesión</Link>
+				<Link to="/signup" className="btn btn-outline-primary mx-2">Registrarse</Link>
+			</div>
 		</div>
 	);
+
 }; 

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Private = () => {
     const navigate = useNavigate();
     const [message, setMessage] = useState("");
-
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         console.log("TOKEN ENVIADO:", token);
@@ -14,7 +14,7 @@ const Private = () => {
             return navigate("/login");
         }
 
-        fetch("https://super-potato-5gxr57xj6wpj3vq9p-3001.app.github.dev/api/private", {
+        fetch(`${backendUrl}/api/private`, {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + token,
